@@ -5,7 +5,7 @@ import sys
 from django.core.wsgi import get_wsgi_application
 from django.contrib.staticfiles.handlers import StaticFilesHandler
 
-path = os.path.expanduser("~/web-empresa")
+path = os.path.expanduser("~/web-empresa/webempresa")
 if path not in sys.path:
     sys.path.insert(0, path)
 os.environ["DJANGO_SETTINGS_MODULE"] = "web-empresa.settings"
