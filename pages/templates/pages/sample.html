@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block header %}
+    <section class="page-section about-heading">
+        <div class="container">
+            <div class="about-heading-content mbtm">
+                <div class="row">
+                    <div class="col-xl-9 col-lg-10 mx-auto">
+                        <div class="bg-faded rounded p-5 forced">
+                            {{page.asfasfas}}
+                            <h2 class="section-heading mb-4">
+                                <span class="section-heading-lower">{{page.title}}</span>
+                            </h2>
+                            <div class="section-content">
+                                {{page.content|safe}}
+                                {% if user.is_authenticated %}
+                                    <!-- Para este nuevo tipo de url se construye el path de la siguiente manera
+                                    Nombre app pages, modelo que queremos editar page, change accion que queremos hacer-->
+                                    <p> <a href="{% url 'admin:pages_page_change' page.id  %}"> Editar<a/></p>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock header %}
