@@ -1,16 +1,14 @@
-"""
-WSGI config for webempresa project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/5.2/howto/deployment/wsgi/
-"""
+# DESPLEGAR APP EN PYTHONANYWHERE
 
 import os
-
+import sys
 from django.core.wsgi import get_wsgi_application
+from django.contrib.staticfiles.handlers import StaticFilesHandler
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'webempresa.settings')
+path = os.path.expanduser("~/web-empresa")
+if path not in sys.path:
+    sys.path.insert(0, path)
+os.environ["DJANGO_SETTINGS_MODULE"] = "web-empresa.settings"
 
-application = get_wsgi_application()
+
+application = StaticFilesHandler(get_wsgi_application())
