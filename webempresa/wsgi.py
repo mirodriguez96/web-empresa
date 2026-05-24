@@ -5,10 +5,13 @@ import sys
 from django.core.wsgi import get_wsgi_application
 from django.contrib.staticfiles.handlers import StaticFilesHandler
 
-path = os.path.expanduser("~/web-empresa/webempresa")
+# Raiz donde va el proyecto y se encuentra el archivo manage.py
+path = os.path.expanduser("~/web-empresa")
 if path not in sys.path:
     sys.path.insert(0, path)
-os.environ["DJANGO_SETTINGS_MODULE"] = "web-empresa.settings"
+
+# nombre del proyecto
+os.environ["DJANGO_SETTINGS_MODULE"] = "webempresa.settings"
 
 
 application = StaticFilesHandler(get_wsgi_application())
